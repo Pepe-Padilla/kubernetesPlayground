@@ -5,7 +5,7 @@ minikube status
 minikube start --driver=virtualbox # o el driver que se desé para windows se recomienda hiperv
 
 # Crear un nuevo deployment (create crea un objeto de kubernet) - imperativo
-kubectl create deployment <name> --<image=dockerhub alias>/<cluster image  name>
+kubectl create deployment <name> --image="<dockerhub alias>/<cluster image  name>"
 #### Crea y controla desde un cluster un "mastar node"
 
 # Ver los deployments/pods
@@ -19,3 +19,7 @@ minikube dashboard
 kubectl expose deployment <nombre image> --type=LoadBalancer --port=8080
 kubectl get services
 minikube service <nombre imagen>
+
+# auto Scaling
+kubectl scale deployment/<deployment name> --replicas=3
+kubectl get pods # deberían salir 3 del mismo container+
